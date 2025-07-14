@@ -161,7 +161,7 @@ classDiagram
     Reddit --> Metadata
     DownloadHistory --> Metadata
     DownloadRecord --> Metadata
-
+```
 
 ---
 

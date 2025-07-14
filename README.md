@@ -7,7 +7,6 @@ A powerful and user-friendly tool to download videos from various platforms like
 ## 📌 Table of Contents
 
 - [Introduction](#introduction)
-- [Problem Statement](#problem-statement)
 - [Objectives](#objectives)
 - [Tools and Technologies Used](#tools-and-technologies-used)
 - [System Requirements](#system-requirements)
@@ -24,12 +23,7 @@ A powerful and user-friendly tool to download videos from various platforms like
 ## 📖 Introduction
 
 This application is a user-friendly Java-based desktop program that enables users to download videos from multiple platforms. It supports multiple resolutions and formats, and provides metadata previews and history management.
-
----
-
-## ❗ Problem Statement
-
-Most popular video platforms do not provide built-in download functionality. This tool solves that by enabling media downloads across platforms in an efficient and reliable way.
+Just input the URL of your favourite Video and viola!
 
 ---
 
@@ -55,6 +49,7 @@ Most popular video platforms do not provide built-in download functionality. Thi
 - 🔽 yt-dlp for downloading media
 - 🔄 ffmpeg for media conversion and merging
 - 🧱 Core OOP Concepts: Encapsulation, Abstraction, Inheritance, Polymorphism
+- 💾 SQLite for Database(For History)
 
 ---
 
@@ -77,7 +72,7 @@ Most popular video platforms do not provide built-in download functionality. Thi
 
 ## 🧩 System Design
 
-## 🧩 Class Diagram
+### Class Diagram
 
 ```mermaid
 classDiagram
@@ -208,7 +203,13 @@ The app features separate interfaces for each platform and additional utilities:
 ## ⚠️ Challenges and Limitations
 
 ### ❌ Direct Video URL Parsing
+- Initial idea was to retreive video link via HTML
+- Video links split into many parts
 - YouTube encrypts stream URLs (signature ciphering)
+  
+  links look like: https://www.youtube.com/youtubei/v1/player?key=AIzaSy.
+  
+  signature cipher look like: "s=Aoq0s...&sp=signature&url=https:%3"
 - Needed real-time JavaScript decryption (impractical)
 
 ### 🎵 Split Video/Audio Streams
@@ -217,6 +218,7 @@ The app features separate interfaces for each platform and additional utilities:
 
 ### 🔒 Google API and Apex Restrictions
 - Internal APIs returned 403/405 errors
+  ![403/405 errors](images/error_screen.png)
 - API key couldn’t bypass Apex server limitations
 
 ### 🔁 Pivot to yt-dlp
@@ -237,13 +239,3 @@ The app features separate interfaces for each platform and additional utilities:
 Despite technical limitations with platform protections and obfuscation, we successfully implemented a robust, cross-platform downloader using open-source tools like `yt-dlp` and `ffmpeg`. The modular OOP design allows easy future expansion.
 
 ---
-
-## 📷 How to Add Images in README.md
-
-> Make sure images are in your repo (e.g. `images/` folder)
-
-### Example Markdown:
-
-```markdown
-![Alt Text](images/your_image_file.png)
-

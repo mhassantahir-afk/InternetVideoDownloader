@@ -77,7 +77,91 @@ Most popular video platforms do not provide built-in download functionality. Thi
 
 ## 🧩 System Design
 
-📌 *(Class diagram will be added here)*
+## 🧩 Class Diagram
+
+```mermaid
+classDiagram
+    class Platform {
+        - String videoUrl
+        - String ytDlpPath
+        + extractMetadata()
+        + saveMetadata()
+        + downloadVideo(options, saveLocation, progressCallback)
+        + getMetadata() : Metadata
+    }
+
+    class Metadata {
+        - String title
+        - String channelName
+        - String duration
+        - String uploadDate
+        - String thumbnailUrl
+        - String sourceUrl
+        - List<String> qualityList
+        - String platform
+        + getters()
+        + setters()
+    }
+
+    class DownloadRecord {
+        - String title
+        - String url
+        - String platform
+        - String quality
+        - String filepath
+        - String dateDownloaded
+    }
+
+    class DownloadHistory {
+        - static String DBLocation
+        + initializeDatabase()
+        + saveHistory(metadata, quality, filePath)
+    }
+
+    class UrlChecker {
+        + static String detectPlatform(url)
+        + static boolean isValidUrl(url)
+    }
+
+    class YouTube {
+        - Metadata metadata
+        + extractMetadata()
+        + saveMetadata()
+        + downloadVideo()
+    }
+
+    class Instagram {
+        - Metadata metadata
+        + extractMetadata()
+        + saveMetadata()
+        + downloadVideo()
+    }
+
+    class Facebook {
+        - Metadata metadata
+        + extractMetadata()
+        + saveMetadata()
+        + downloadVideo()
+    }
+
+    class Reddit {
+        - Metadata metadata
+        + extractMetadata()
+        + saveMetadata()
+        + downloadVideo()
+    }
+
+    Platform <|-- YouTube
+    Platform <|-- Instagram
+    Platform <|-- Facebook
+    Platform <|-- Reddit
+    YouTube --> Metadata
+    Instagram --> Metadata
+    Facebook --> Metadata
+    Reddit --> Metadata
+    DownloadHistory --> Metadata
+    DownloadRecord --> Metadata
+
 
 ---
 
@@ -86,6 +170,9 @@ Most popular video platforms do not provide built-in download functionality. Thi
 ### 🎨 Frontend GUI (JavaFX)
 
 The app features separate interfaces for each platform and additional utilities:
+
+#### Main Interface
+![Main Interface](images/main_interface.png)
 
 #### 📺 YouTube GUI
 ![YouTube GUI](images/youtube_gui.png)
@@ -101,6 +188,9 @@ The app features separate interfaces for each platform and additional utilities:
 
 #### 🧠 Metadata Preview
 ![Metadata Preview](images/metadata_preview.png)
+
+#### Quality Selection
+![Quality Selection](images/quality_selection.png)
 
 #### 📜 Download History View
 ![History View](images/history_view.png)

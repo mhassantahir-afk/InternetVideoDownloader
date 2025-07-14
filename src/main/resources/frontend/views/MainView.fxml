@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="frontend.controllers.MainController">
+
+    <!-- 🔵 Facebook background -->
+    <Rectangle fx:id="facebookBackground"
+               width="10000" height="10000"
+               fill="#1877F2"
+               opacity="0.0"
+               mouseTransparent="true" />
+
+    <!-- 📘 Facebook logo -->
+    <ImageView fx:id="facebookLogo"
+               fitWidth="100"
+               preserveRatio="true"
+               opacity="0.0"
+               StackPane.alignment="CENTER"
+               mouseTransparent="true" />
+
+
+    <!-- 🟥 Reddit background rectangle -->
+    <Rectangle fx:id="redditBackground"
+               width="10000" height="10000"
+               opacity="0.0"
+               fill="#FF4500"
+               mouseTransparent="true" />
+
+    <!-- 👽 Reddit logo -->
+    <ImageView fx:id="redditLogo"
+               fitWidth="110" preserveRatio="true"
+               opacity="0.0"
+               StackPane.alignment="CENTER"
+               mouseTransparent="true" />
+
+    <!-- 🎨 Instagram gradient background image -->
+    <ImageView fx:id="instagramBackground"
+               fitWidth="10000" preserveRatio="true"
+               opacity="0.0"
+               mouseTransparent="true" />
+
+    <!-- 🤍 Instagram logo in center -->
+    <ImageView fx:id="instagramLogo"
+               fitWidth="110" preserveRatio="true"
+               opacity="0.0"
+               StackPane.alignment="CENTER"
+               mouseTransparent="true" />
+
+    <Rectangle fx:id="youtubeBackground"
+               fill="#FF0000"
+               width="10000" height="10000"
+               opacity="0.0"
+               mouseTransparent="true" />
+
+    <!-- ▶ Centered YouTube Play icon -->
+    <ImageView fx:id="youtubePlayIcon"
+               fitWidth="100" preserveRatio="true"
+               opacity="0.0"
+               mouseTransparent="true"
+               StackPane.alignment="CENTER" />
+
+
+    <BorderPane>
+        <!-- === TOP BAR === -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10 20 10 20;">
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="deleteHistoryButton"
+                    text="🗑 Clear History"
+                    onAction="#onDeleteHistoryClicked"
+                    visible = "false"/>
+            <Button fx:id="historyButton" text="📜 History" onAction="#onHistoryClicked"/>
+        </HBox>
+    </top>
+
+    <!-- === CENTER AREA === -->
+        <center>
+            <StackPane alignment="CENTER">
+
+                <!-- Input Section -->
+                <VBox fx:id="inputBox"
+                      spacing="20"
+                      alignment="TOP_CENTER"
+                      style="-fx-padding: 40;">
+
+                    <TextField fx:id="urlField"
+                               promptText="Paste YouTube/Reddit link here"
+                               prefWidth="500" />
+
+                    <Button fx:id="downloadButton"
+                            text="⬇ Download"
+                            onAction="#onDownloadClicked"
+                            styleClass="download-btn"
+                            prefWidth="200" />
+                </VBox>
+
+                <!-- Preview Section (Initially hidden) -->
+                <VBox fx:id="previewBox"
+                      alignment="TOP_CENTER"
+                      spacing="12"
+                      style="-fx-padding: 30;"
+                      visible="false"
+                      opacity="0.0"
+                      maxWidth="500">
+                    <ImageView fx:id="previewThumbnail"
+                               fitWidth="360"
+                               fitHeight="200"
+                               preserveRatio="true"
+                               smooth="true"
+                               style="-fx-effect: dropshadow(gaussian, black, 8, 0.2, 0, 1);" />
+
+                    <Label fx:id="titleLabel"
+                           style="-fx-font-size: 18px; -fx-text-fill: white; -fx-wrap-text: true;" />
+                    <Label fx:id="channelLabel" style="-fx-text-fill: lightgrey;" />
+                    <Label fx:id="durationLabel" style="-fx-text-fill: lightgrey;" />
+                    <Label fx:id="uploadDateLabel" style="-fx-text-fill: lightgrey;" />
+
+                    <HBox fx:id="qualityBox"
+                          spacing="10"
+                          alignment="CENTER">
+                        <Label text="Quality:" style="-fx-text-fill: #ffffff;" />
+                        <ComboBox fx:id="qualityComboBox"
+                                  prefWidth="150"
+                                  style="-fx-background-color: #3e3e3e; -fx-text-fill: #ffffff;" />
+                    </HBox>
+
+                    <Button fx:id="finalDownloadButton"
+                            onAction="#onFinalDownloadClicked"
+                            text="⬇ Download"
+                            styleClass="download-btn"
+                            prefWidth="200" />
+                </VBox>
+
+                <ProgressBar fx:id="downloadProgressBar"
+                             visible="false"
+                             progress="0"
+                             maxWidth="300"
+                             StackPane.alignment="CENTER"
+                             translateY="180"
+                             styleClass="modern-progress" />
+
+                <VBox fx:id="historyView"
+                      spacing="10"
+                      alignment="CENTER"
+                      style="-fx-padding: 20;"
+                      visible="false"
+                      opacity="0.0">
+
+                    <TableView fx:id="historyTable"
+                               prefWidth="900"
+                               style="-fx-background-color: #2e2e2e; -fx-text-fill: white;">
+                        <columns>
+                            <TableColumn fx:id="colPlatform" text="Platform" prefWidth="100"/>
+                            <TableColumn fx:id="colTitle" text="Title" prefWidth="250"/>
+                            <TableColumn fx:id="colUrl" text="URL" prefWidth="200"/>
+                            <TableColumn fx:id="colQuality" text="Quality" prefWidth="80"/>
+                            <TableColumn fx:id="colPath" text="Saved At" prefWidth="170"/>
+                            <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+
+                    <Button text="⬅ Back"
+                            fx:id="backButton"
+                            onAction="#onBackFromHistory"
+                            style="-fx-background-color: #444; -fx-text-fill: white; -fx-font-weight: bold;"
+                            prefWidth="200"/>
+                </VBox>
+
+                <Button fx:id="backFromPreviewButton"
+                        text="← Back"
+                        onAction="#onBackFromPreview"
+                        visible="false"
+                        style="-fx-background-color: #444;
+                       -fx-text-fill: white;
+                       -fx-font-size: 14px;
+                       -fx-font-weight: bold;"
+                        StackPane.alignment="TOP_LEFT"
+                        translateX="15"
+                        translateY="15" />
+            </StackPane>
+        </center>
+
+
+        <!-- === BOTTOM AREA === -->
+    <bottom>
+        <HBox spacing="20" alignment="CENTER" style="-fx-padding: 10;">
+            <ImageView fitHeight="32" fitWidth="32">
+                <image>
+                    <Image url="@/frontend/images/youtube.png"/>
+                </image>
+            </ImageView>
+            <ImageView fitHeight="32" fitWidth="32">
+                <image>
+                    <Image url="@/frontend/images/instagram.png"/>
+                </image>
+            </ImageView>
+            <ImageView fitHeight="32" fitWidth="32">
+                <image>
+                    <Image url="@/frontend/images/reddit.png"/>
+                </image>
+            </ImageView>
+            <ImageView fitHeight="32" fitWidth="32">
+                <image>
+                    <Image url="@/frontend/images/facebook.png"/>
+                </image>
+            </ImageView>
+        </HBox>
+    </bottom>
+
+</BorderPane>
+</StackPane>

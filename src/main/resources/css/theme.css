@@ -1,0 +1,124 @@
+.root {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #f0f0f0;
+}
+
+.label {
+    -fx-text-fill: #dddddd;
+    -fx-font-size: 16px;
+}
+
+.text-field {
+    -fx-background-color: #3a3a3a;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #888888;
+    -fx-border-color: transparent;
+    -fx-background-radius: 6;
+    -fx-padding: 6 12;
+}
+
+.button {
+    -fx-background-color: #444444;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #555555;
+}
+
+.image-view:hover {
+    -fx-effect: dropshadow(gaussian, white, 5, 0.2, 0, 0);
+    -fx-cursor: hand;
+}
+
+.download-btn {
+    -fx-background-color: #3e3e3e;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-font-size: 15px;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, black, 4, 0.3, 0, 1);
+}
+
+.download-btn:hover {
+    -fx-background-color: #555555;
+}
+
+.label {
+    -fx-wrap-text: true;
+}
+
+.table-view {
+    -fx-background-color: #2e2e2e;
+    -fx-control-inner-background: #2e2e2e;
+    -fx-table-cell-border-color: #444;
+    -fx-table-header-border-color: #444;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #3a3a3a;
+    -fx-border-color: #444;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .cell {
+    -fx-text-fill: white;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #555555;
+}
+/* ComboBox dropdown list */
+.combo-box-popup .list-view {
+    -fx-background-color: #232323;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #3a3a3a;
+}
+.combo-box .label {
+    -fx-text-fill: white;
+}
+
+.combo-box {
+    -fx-background-color: #3e3e3e;
+    -fx-mark-color: white;
+    -fx-display-text-fill: white;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: #3e3e3e;
+}
+/* ===== Modern Clean Progress Bar ===== */
+.modern-progress {
+    -fx-accent: black; /* Fill color */
+    -fx-control-inner-background: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.modern-progress .track {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.modern-progress .bar {
+    -fx-background-color: black;
+    -fx-background-radius: 10;
+}

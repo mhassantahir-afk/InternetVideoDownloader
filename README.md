@@ -44,12 +44,26 @@ Just input the URL of your favourite Video and viola!
 
 ## 🧰 Tools and Technologies Used
 
+<p align="left">
+  <!-- Java -->
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" width="40" alt="Java" />
+  <!-- SQLite -->
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" height="40" width="40" alt="SQLite" />
+  <!-- CSS -->
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" width="40" alt="CSS3" />
+  <!-- yt-dlp (no SVG icon available, using text-based badge) -->
+  <img src=https://gcdn.thunderstore.io/live/repository/icons/Lordfirespeed-YoutubeDLSharp-1.1.0.png.128x128_q95.png height="40" alt="yt-dlp" />
+  <!-- JavaFX (no official icon in devicon, using text-based badge instead) -->
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/JavaFX_Logo.png/375px-JavaFX_Logo.png" height="40" alt="JavaFX" />
+</p>
+
 - 💻 Java (Object-Oriented Programming)
 - 🎨 JavaFX for GUI
 - 🔽 yt-dlp for downloading media
 - 🔄 ffmpeg for media conversion and merging
 - 🧱 Core OOP Concepts: Encapsulation, Abstraction, Inheritance, Polymorphism
 - 💾 SQLite for Database(For History)
+- 🖌️ CSS for styling the GUI
 
 ---
 

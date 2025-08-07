@@ -36,3 +36,14 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+#Temporary/ Cache Files
+*.log
+*.class
+*.iml
+Thumbs.db
+
+#Large resource Files
+src/main/resources/javafx-sdk-24.0.1/
+src/main/resources/ffmpeg
+src/main/resources/yt-dlp
